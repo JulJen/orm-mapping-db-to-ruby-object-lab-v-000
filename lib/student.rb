@@ -45,7 +45,7 @@ class Student
     sql = <<-SQL
       SELECT student.id
       FROM students
-      WHERE grade = 9
+      GROUP BY grade WHERE grade = 9
     SQL
   end
 
