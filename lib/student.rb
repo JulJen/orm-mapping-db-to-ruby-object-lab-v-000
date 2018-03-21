@@ -36,9 +36,9 @@ class Student
       LIMIT 1
     SQL
 
-    DB[:conn]execute(sql, name).map do |row|
+    DB[:conn].execute(sql, name).map do |row|
       self.new_from_db(row)
-    end.first # chaining - grabbing the .first element from the returned array 
+    end.first # chaining - grabbing the .first element from the returned array
   end
 
   def save
