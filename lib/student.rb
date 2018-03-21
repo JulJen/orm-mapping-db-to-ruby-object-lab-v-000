@@ -15,6 +15,14 @@ class Student
   def self.all
     # retrieve all the rows from the "Students" database
     # remember each row should be a new instance of the Student class
+    sql = <<-SQL
+      SELECT * 
+      FROM students 
+    SQL
+
+    DB[:conn].execute(sql).map do |row| #value of the hash(call to databse) is a new instance of the SQLite3::Database class
+      self.new_from_db(row)
+    
   end
 
   def self.find_by_name(name)
