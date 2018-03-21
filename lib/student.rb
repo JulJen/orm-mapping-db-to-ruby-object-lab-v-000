@@ -49,6 +49,14 @@ class Student
     SQL
   end
 
+  # pat.name = "Pat"
+  # pat.grade = 12
+  # pat.save
+  # sam.name = "Sam"
+  # sam.grade = 9
+  # sam.save
+
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
