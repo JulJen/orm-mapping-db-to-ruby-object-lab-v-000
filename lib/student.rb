@@ -115,7 +115,7 @@ class Student
   end
 
 
-  def self.first_student_in_grade_10 #takes in an argument of the number of students from grade 10 to select
+  def self.first_student_in_grade_10 #takes in an argument of the number of students from grade 10
     sql = <<-SQL
       SELECT *
       FROM students
