@@ -43,9 +43,9 @@ class Student
 
   def self.count_all_students_in_grade_9
     sql = <<-SQL
-      SELECT COUNT(id) 
+      SELECT COUNT(id)
       FROM students
-      GROUP BY name WHERE grade = 9
+      GROUP BY grade  
     SQL
   end
 
