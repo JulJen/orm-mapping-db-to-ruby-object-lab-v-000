@@ -43,11 +43,11 @@ class Student
 
   def self.count_all_students_in_grade_9(grade)
     sql = <<-SQL
-      SELECT *
+      SELECT COUNT(student.id)
       FROM students
-      WHERE grade = ?
+      WHERE grade = 9
     SQL
-binding.pry
+
     DB[:conn].execute(sql, grade).map do |row|
       self.new_from_db(row)
     end
