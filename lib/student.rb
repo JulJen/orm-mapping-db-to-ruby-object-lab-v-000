@@ -41,6 +41,15 @@ class Student
     end.first # chaining - grabbing the .first element from the returned array
   end
 
+  def self.count_all_students_in_grade_9(row)
+    sql = <<-SQL
+      SELECT *
+      FROM students
+      WHERE grade = ?
+      LIMIT 1
+    SQL
+  end
+
   def save
     sql = <<-SQL
       INSERT INTO students (name, grade)
