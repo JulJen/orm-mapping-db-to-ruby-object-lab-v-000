@@ -45,7 +45,6 @@ class Student
     sql = <<-SQL
       SELECT SUM(students.id)
       FROM students
-      ORDER BY students.id
       WHERE grade = 9
     SQL
   end
