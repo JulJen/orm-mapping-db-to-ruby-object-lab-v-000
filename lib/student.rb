@@ -13,10 +13,7 @@ class Student
   end
 
 
-  def self.all
-    # retrieve all the rows from the "Students" database
-    # remember each row should be a new instance of the Student class
-    # sql is a variable that holds data for all students returned into a database
+  def self.all # retrieves all the rows from the "Students" database
     sql = <<-SQL
       SELECT *
       FROM students
@@ -112,7 +109,7 @@ class Student
   end
 
 
-  def self.first_student_in_grade_10 
+  def self.first_student_in_grade_10
     sql = <<-SQL
       SELECT *
       FROM students
