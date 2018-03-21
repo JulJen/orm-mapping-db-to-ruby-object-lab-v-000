@@ -45,8 +45,12 @@ class Student
     sql = <<-SQL
       SELECT COUNT(id)
       FROM students
-      GROUP BY grade  
+      GROUP BY grade
     SQL
+
+    DB[:conn].execute(sq).map do |row|
+      self.new_from_db(row)
+    end
   end
 
   # pat.name = "Pat"
