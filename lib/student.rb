@@ -94,7 +94,7 @@ class Student
       WHERE grade < 12
     SQL
 
-    DB[:conn].execute(sql).map do |row|
+    DB[:conn].execute(sql).map do |row| #returns an array of all the students below 12th grade
       self.new_from_db(row)
     end
   end
@@ -109,33 +109,33 @@ class Student
       LIMIT ?
     SQL
 
-    DB[:conn].execute(sql, num).map do |row|
+    DB[:conn].execute(sql, num).map do |row| #returns an array of X number of students
       self.new_from_db(row)
     end
   end
 
 
-  def self.first_student_in_grade_10
+  def self.first_student_in_grade_10 #takes in an argument of the number of students from grade 10 to select
     sql = <<-SQL
       SELECT *
       FROM students
       WHERE grade = 10
     SQL
 
-    DB[:conn].execute(sql).map do |row|
+    DB[:conn].execute(sql).map do |row| #returns the first student that is in grade 10.
       self.new_from_db(row)
     end.first
   end
 
 
-  def self.all_students_in_grade_X(num)
+  def self.all_students_in_grade_X(num) #takes in an argument of grade for which to retrieve the roster
     sql = <<-SQL
       SELECT *
       FROM students
       WHERE grade = ?
     SQL
 
-    DB[:conn].execute(sql, num).map do |row|
+    DB[:conn].execute(sql, num).map do |row| #returns an array of all students for grade X.
       self.new_from_db(row)
     end
   end
