@@ -41,12 +41,16 @@ class Student
     end.first # chaining - grabbing the .first element from the returned array
   end
 
-  def self.count_all_students_in_grade_9(row)
+  def self.count_all_students_in_grade_9(grade)
     sql = <<-SQL
       SELECT *
       FROM students
       WHERE grade = ?
     SQL
+binding.pry
+    DB[:conn].execute(sql, grade).map do |row|
+      self.new_from_db(row)
+    end
   end
 
   def save
