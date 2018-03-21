@@ -45,7 +45,7 @@ class Student
     sql = <<-SQL
       SELECT COUNT(*)
       FROM students
-      WHERE grade = 9;
+      WHERE grade = 9
     SQL
 
     DB[:conn].execute(sql).map do |row|
@@ -57,7 +57,7 @@ class Student
     sql = <<-SQL
       SELECT COUNT(*)
       FROM students
-      WHERE grade < 12;
+      WHERE grade < 12
     SQL
 
     DB[:conn].execute(sql).map do |row|
@@ -69,7 +69,8 @@ class Student
     sql = <<-SQL
       SELECT name
       FROM students
-      WHERE grade = 10 LIMIT 1;
+      WHERE grade = 10
+      LIMIT 1
     SQL
 
     DB[:conn].execute(sql).map do |row|
