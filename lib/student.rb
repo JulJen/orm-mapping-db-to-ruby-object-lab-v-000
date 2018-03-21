@@ -21,7 +21,7 @@ class Student
       FROM students
     SQL
 
-    DB[:conn].execute(sql).map do |row| #value of the hash(call to database) is a new instance of the SQLite3::Database class- iterate over each row and use the self.new_from_db method to create a new Ruby object for each row.
+    DB[:conn].execute(sql).map do |row| #value of the hash(call to database) is a new instance of the SQLite3::Database class- .map iterates over each row and uses the self.new_from_db method to create a new Student object for each row.
       self.new_from_db(row)
     end
   end
