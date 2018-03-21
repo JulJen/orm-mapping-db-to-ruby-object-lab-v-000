@@ -46,6 +46,7 @@ class Student
       SELECT SUM(students.name) as name
       FROM students
       GROUP BY name WHERE grade = 9
+      LIMIT 1
     SQL
   end
 
