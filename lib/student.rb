@@ -53,12 +53,19 @@ class Student
     end
   end
 
-  # pat.name = "Pat"
-  # pat.grade = 12
-  # pat.save
-  # sam.name = "Sam"
-  # sam.grade = 9
-  # sam.save
+  def self.students_below_12th_grade
+    sql = <<-SQL
+      SELECT COUNT(*)
+      FROM students
+      WHERE grade < 12;
+    SQL
+
+    DB[:conn].execute(sql).map do |row|
+      self.new_from_db(row)
+    end
+  end
+
+
 
 
   def save
